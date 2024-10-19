@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C5282;
+            --secondary-color: #4299E1;
+            --accent-color: #90CDF4;
+            --background-color: #F7FAFC;
+            --text-color: #2D3748;
+            --danger-color: #E53E3E;
+            --warning-color: #ED8936;
+            --success-color: #38A169;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .table {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--text-color);
+        }
+
+        .thead-dark th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .cliente-data {
+            font-family: Arial, sans-serif; /* Fuente más legible */
+            font-size: 14px; /* Tamaño de fuente más grande */
+            color: var(--text-color); /* Color del texto */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Lista de Clientes</h1>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="cliente-data">1</td>
+            <td class="cliente-data">Adriel Pérez</td>
+            <td class="cliente-data">adriel.perez@example.com</td>
+            <td class="cliente-data">555-1234</td>
+            <td>
+                <a href="/clientes/editar/1" class="btn btn-warning">Editar</a>
+                <a href="/clientes/eliminar/1" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="cliente-data">2</td>
+            <td class="cliente-data">Kieri López</td>
+            <td class="cliente-data">kieri.lopez@example.com</td>
+            <td class="cliente-data">555-5678</td>
+            <td>
+                <a href="/clientes/editar/2" class="btn btn-warning">Editar</a>
+                <a href="/clientes/eliminar/2" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="cliente-data">3</td>
+            <td class="cliente-data">Alex Gómez</td>
+            <td class="cliente-data">alex.gomez@example.com</td>
+            <td class="cliente-data">555-9101</td>
+            <td>
+                <a href="/clientes/editar/3" class="btn btn-warning">Editar</a>
+                <a href="/clientes/eliminar/3" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/clientes/nuevo" class="btn btn-primary">Agregar nuevo cliente</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

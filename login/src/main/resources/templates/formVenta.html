@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro de Venta</title>
+</head>
+<body>
+<h1>Registrar Venta</h1>
+<form th:action="@{'/ventas/guardar'}" method="post">
+    <label for="cliente">Cliente:</label>
+    <select id="cliente" name="idCliente">
+        <option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+    </select><br>
+
+    <h2>Productos</h2>
+    <div th:each="producto : ${productos}">
+        <label th:text="${producto.nombre}"></label>
+        <input type="number" name="cantidad_${producto.idProducto}" placeholder="Cantidad"><br>
+    </div>
+
+    <button type="submit">Registrar Venta</button>
+</form>
+<a href="/ventas">Ver todas las ventas</a>
+</body>
+</html>

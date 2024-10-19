@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabFarma System - Bienvenida</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C5282;
+            --secondary-color: #4299E1;
+            --accent-color: #90CDF4;
+            --background-color: #F7FAFC;
+            --text-color: #2D3748;
+            --danger-color: #E53E3E;
+            --warning-color: #ED8936;
+            --success-color: #38A169;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .welcome-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-header h1 {
+            margin-bottom: 1rem;
+        }
+
+        .user-info {
+            background-color: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .menu-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .menu-item span {
+            font-weight: 600;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5rem;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="/" class="navbar-brand">
+        <i class="fas fa-flask"></i>
+        LabFarma System
+    </a>
+</nav>
+
+<div class="container">
+    <div class="welcome-header">
+        <i class="fas fa-user-md" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+        <h1>Bienvenido, <span th:text="${name}">Usuario</span>!</h1>
+        <div class="user-info" sec:authorize="isAuthenticated()">
+            Usuario autenticado: <span sec:authentication="name"></span>
+        </div>
+    </div>
+
+    <div class="menu-grid">
+        <a th:href="@{/productos}" class="menu-item">
+            <i class="fas fa-pills"></i>
+            <span>Gestión de Inventario</span>
+            <p>Administra el stock de productos farmacéuticos</p>
+        </a>
+        <a th:href="@{/clientes}" class="menu-item">
+            <i class="fas fa-users"></i>
+            <span>Gestión de Clientes</span>
+            <p>Administra la información de los clientes</p>
+        </a>
+        <a th:href="@{/ventas}" class="menu-item">
+            <i class="fas fa-cash-register"></i>
+            <span>Registro de Ventas</span>
+            <p>Control y seguimiento de ventas</p>
+        </a>
+        <a th:href="@{/usuarios}" class="menu-item">
+            <i class="fas fa-user-cog"></i>
+            <span>Administración de Usuarios</span>
+            <p>Gestiona los usuarios del sistema</p>
+        </a>
+    </div>
+
+    <div class="text-center mt-4">
+        <a th:href="@{/logout}" class="btn btn-danger">
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+        </a>
+    </div>
+</div>
+</body>
+</html>
